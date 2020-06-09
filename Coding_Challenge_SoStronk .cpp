@@ -4,10 +4,11 @@
 #include<map>
 #include <queue> 
 #include<iterator>
+#include <iomanip> 
 #include<cstdlib> 
 using namespace std;
 
-multimap<int, string > fun(int start, int count, int avg1, vector <pair<string, int> >& arr, int avg2,  multimap<int, string  > &ans, string s1, string s2){
+void fun(int start, int count, float avg1, vector <pair<string, float> >& arr, float avg2,  multimap<float, string  > &ans, string s1, string s2){
     if(count ==0){
         
         for(int i=start; i<arr.size(); i++){
@@ -22,8 +23,8 @@ multimap<int, string > fun(int start, int count, int avg1, vector <pair<string, 
         
         s1 += "(" + to_string(avg1) +") ";
         s2 += " (" + to_string(avg2) +")";
-        ans.insert(make_pair(abs(avg2-avg1),s1 + " VS "+ s2));
-        return ans;
+        ans.insert(make_pair(avg1-avg2,s1 + " VS "+ s2));
+        return ;
     }
     --count;
      
@@ -35,43 +36,62 @@ multimap<int, string > fun(int start, int count, int avg1, vector <pair<string, 
     
     }
         
-    return ans;
+    return ;
 }
 
 int main()
 {
     
     int start =1;
-    vector <pair<string, int> > arr;
-    multimap<int,  string > ans;
+    vector <pair<string, float> > arr;
+    multimap<float,  string > ans;
     int n;
-    string  temp1; int temp2;
+    string  temp1; float temp2;
     cout<<"enter how many players are playing ?? "<<endl;
-    cin>>n;
+    try{
+        cin>>n;
+        if (std::cin.fail()) throw 1;
+    }
+    catch (int err){
+        cout<<"please enter valid datatypes in fileds"<<endl;
+        return 0;
+    }
     while((n & 1) == 1){
         cout<<"please enter even number.......because we need equal members of teams"<<endl;
             cout<<"enter how many players are playing ??"<<endl;
         cin>>n;
     }
-    for(int i=0; i<n; i++){
-        cout<<"enter name of "<<i+1<<" person : ";
-        cin>>temp1;
-        cout<<"enter score of  " << temp1 << " : ";
-        cin>>temp2;
+    for(int i=0; i<n; i++){        
+        try{
+            cout<<"enter name of "<<i+1<<" person : ";
+            cin>>temp1;
+            if (std::cin.fail()) throw 1;
+            cout<<"enter score of  " << temp1 << " : ";
+            cin>>temp2;
+            if (std::cin.fail()) throw 1;
+
+        }
+        catch (int err){
+            cout<<"please enter valid datatypes in fileds"<<endl;
+            return 0;
+        }
         arr.push_back(make_pair( temp1, temp2));
     }
-    cout<<"..........................................."<<endl;
+    cout<<"...................OUTPUT........................"<<endl;
+    cout<<endl;
 
-    int avg2 =0;
+    float avg2 =0;
     int end = arr.size();
     int count = end/2;
     string s1 = arr[0].first+",";
     string s2 ;
-    int avg1 = arr[0].second;
+    float avg1 = arr[0].second;
     count--;
-    ans = fun(start, count, avg1, arr, avg2, ans,s1, s2 );
-    multimap<int, string  > :: iterator i;
+     fun(start, count, avg1, arr, avg2, ans ,s1, s2 );
+    multimap<float, string  > :: iterator i;
     for(i = ans.begin(); i != ans.end(); i++){
-        cout<<i->second<<endl;
+        cout<<setprecision(1)<<i->second<<endl;
     }
+    cout<<".............................................."<<endl;
+    cout<<endl;
 }
