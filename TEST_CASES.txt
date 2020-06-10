@@ -1,0 +1,93 @@
+TEST CASES FOR DIFFERENT INPUTS
+
+
+//FOR 2 PLAYERS
+INPUT : enter how many players are playing  2
+	enter name of 1 person :dev   
+	enter score of  dev : 90
+	enter name of 2 person :rohan  
+	enter score of  abhay :70
+	...................OUTPUT........................
+
+OUTPUT:	dev,(90.000000)  VS rohan, (70.000000)
+	
+	..............................................
+
+
+//FOR 4 PLAYERS
+INPUT : enter how many players are playing  4
+	enter name of 1 person :dev   
+	enter score of  dev : 90
+	enter name of 2 person :abhay  
+	enter score of  abhay :95
+ 	enter name of 3 person :yash   
+	enter score of  yash : 60
+	enter name of 4 person : rohan 
+	enter score of  rohan : 70
+
+	...................OUTPUT........................
+	 
+OUTPUT: dev,rohan,(80.000000)  VS abhay,yash, (77.500000)
+	dev,yash,(75.000000)  VS abhay,rohan, (82.500000)
+	dev,abhay,(92.500000)  VS yash,rohan, (65.000000)
+	..............................................
+
+
+//FOR 6 PLAYERS
+
+INPUT : enter how many players are playing  6
+	enter name of 1 person :dev   
+	enter score of  dev : 90
+	enter name of 2 person :rohan   
+	enter score of  rohan :70
+ 	enter name of 3 person :yash   
+	enter score of  yash : 80
+	enter name of 4 person : abhay 
+	enter score of  abhay : 60
+	enter name of 5 person :anand 
+	enter score of  anand :85
+	enter name of 6 person :shivam  
+	enter score of  shivam  :75
+
+	...................OUTPUT.......................
+
+OUTPUT: dev,yash,abhay,(76.666664)  VS rohan,anand,shivam, (76.666664)
+	dev,rohan,shivam,(78.333336)  VS yash,abhay,anand, (75.000000)
+	dev,abhay,anand,(78.333336)  VS rohan,yash,shivam, (75.000000)
+	dev,abhay,shivam,(75.000000)  VS rohan,yash,anand, (78.333336)
+	dev,rohan,yash,(80.000000)  VS abhay,anand,shivam, (73.333336)
+	dev,rohan,abhay,(73.333336)  VS yash,anand,shivam, (80.000000)
+	dev,rohan,anand,(81.666664)  VS yash,abhay,shivam, (71.666664)
+	dev,yash,shivam,(81.666664)  VS rohan,abhay,anand, (71.666664)
+	dev,anand,shivam,(83.333336)  VS rohan,yash,abhay, (70.000000)
+	dev,yash,anand,(85.000000)  VS rohan,abhay,shivam, (68.333336)
+	..............................................
+
+// odd no of players
+
+INPUT: enter how many players are playing  5
+
+OUTPUT: please enter even number.......because we need equal members of teams
+	
+	...................OUTPUT........................
+
+
+
+
+//string in number input 
+
+INPUT: 	enter how many players are playing  2
+	enter name of 1 person :dev   
+	enter score of  dev : djeqnf
+	enter name of 2 person :rohan   
+	enter score of  rohan :dkwmdw
+
+OUTPUT: please enter valid datatypes in fileds
+	...................OUTPUT........................
+
+
+
+
+
+
+
