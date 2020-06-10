@@ -10,7 +10,9 @@
 using namespace std;
 
 void fun(int start, int count, float avg1, vector <pair<string, float> >& arr, float avg2,  multimap<float, string  > &ans, string s1, string s2){
-    if(count ==0){
+    //this loop works when a the fun() function is executed in the for loop for one complete round and the second counter team is to be created as for ex if abcdef six players 
+	//are inputted then this if statement runs to create second team of def for abc counter team  
+	if(count ==0){
         
         for(int i=start; i<arr.size(); i++){
             s2 += arr[i].first + ",";
@@ -24,6 +26,7 @@ void fun(int start, int count, float avg1, vector <pair<string, float> >& arr, f
         
         s1 += "(" + to_string(avg1) +") ";
         s2 += " (" + to_string(avg2) +")";
+        
         if(avg1 > avg2)
             ans.insert(make_pair(avg1-avg2,s1 + " VS "+ s2));
         else 
@@ -31,12 +34,12 @@ void fun(int start, int count, float avg1, vector <pair<string, float> >& arr, f
         return ;
     }
     --count;
-     
+     //recursive loop to allocate team members to a team and managing other possible permutation of different players
     for(int i=start; i<arr.size()-count;  i++){
         
         fun(i+1, count, (avg1+arr[i].second), arr,avg2, ans, s1+ arr[i].first+"," , s2);
         s2 += arr[i].first +",";
-        avg2 += arr[i].second;
+        avg2 += arr[i].second;        //these lines make sure if abc is taken then ommiting c and making other pairs like abd , abe ,abf etc
     
     }
         
@@ -60,6 +63,7 @@ int main()
         cout<<"please enter valid datatypes in fileds"<<endl;
         return 0;
     }
+    //bit method to check if input is odd or even
     while((n & 1) == 1){
         cout<<"please enter even number.......because we need equal members of teams"<<endl;
             cout<<"enter how many players are playing ??"<<endl;
