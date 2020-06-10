@@ -1,3 +1,4 @@
+// Example program
 #include <iostream>
 #include <string>
 #include <utility> 
@@ -23,7 +24,10 @@ void fun(int start, int count, float avg1, vector <pair<string, float> >& arr, f
         
         s1 += "(" + to_string(avg1) +") ";
         s2 += " (" + to_string(avg2) +")";
-        ans.insert(make_pair(avg1-avg2,s1 + " VS "+ s2));
+        if(avg1 > avg2)
+            ans.insert(make_pair(avg1-avg2,s1 + " VS "+ s2));
+        else 
+            ans.insert(make_pair(avg2-avg1,s1 + " VS "+ s2));
         return ;
     }
     --count;
